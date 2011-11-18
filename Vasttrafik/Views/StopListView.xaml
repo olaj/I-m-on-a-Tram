@@ -1,0 +1,175 @@
+﻿<UserControl x:Class="Vasttrafik.Views.StopListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             FontFamily="{StaticResource PhoneFontFamilyNormal}"
+             FontSize="{StaticResource PhoneFontSizeNormal}"
+             Foreground="{StaticResource PhoneForegroundBrush}"
+             d:DesignHeight="480"
+             d:DesignWidth="480"
+             xmlns:views="clr-namespace:Vasttrafik.Views"
+             xmlns:viewmodel="clr-namespace:Vasttrafik.ViewModel;assembly=Vasttrafik"
+             Margin="0,0,0,1">
+
+    <UserControl.Resources>
+        <viewmodel:StopListViewModel x:Key="TheViewModel"
+                                     d:IsDataSource="True" />
+        <Style x:Key="starButton"
+               TargetType="Button">
+            <Setter Property="BorderBrush"
+                    Value="{StaticResource PhoneForegroundBrush}" />
+            <Setter Property="Foreground"
+                    Value="{StaticResource PhoneForegroundBrush}" />
+            <Setter Property="BorderThickness"
+                    Value="{StaticResource PhoneBorderThickness}" />
+            <Setter Property="FontFamily"
+                    Value="{StaticResource PhoneFontFamilySemiBold}" />
+            <Setter Property="FontSize"
+                    Value="{StaticResource PhoneFontSizeMediumLarge}" />
+            <Setter Property="Padding"
+                    Value="10,3,10,5" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid HorizontalAlignment="Center">
+                            <Border x:Name="ButtonBackground"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="0"
+                                    Margin="0,12"
+                                    HorizontalAlignment="Right"
+                                    Width="43">
+                                <Border.Background>
+                                    <ImageBrush ImageSource="/gfx/favorite.png"
+                                                Stretch="None" />
+                                </Border.Background>
+                                <ContentControl x:Name="ContentContainer"
+                                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                Content="{TemplateBinding Content}"
+                                                Foreground="{TemplateBinding Foreground}"
+                                                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                Padding="{TemplateBinding Padding}"
+                                                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                HorizontalAlignment="Right" />
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <DataTemplate x:Key="myCoolTemplate">
+            <Border BorderThickness="0,0,0,1"
+                    BorderBrush="White">
+            	<Border.Background>
+            		<SolidColorBrush Color="#08454545"/>
+            	</Border.Background>
+                <Border x:Name="myBorder"
+                        Padding="0"
+                        BorderThickness="0,0,0,1"
+                        Height="75">
+                    <Border.BorderBrush>
+                        <SolidColorBrush Color="{StaticResource vastListBorder}" />
+                    </Border.BorderBrush>
+                    <Grid x:Name="myStack"
+                          Width="480"
+                          Margin="0">
+                        <Grid.Resources>
+                            <Storyboard x:Name="sbToFavorite">
+                                <DoubleAnimation Duration="0:0:0.5"
+                                                 To="1"
+                                                 Storyboard.TargetProperty="(UIElement.Opacity)"
+                                                 Storyboard.TargetName="btnFavorite"
+                                                 d:IsOptimized="True" />
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)"
+                                                               Storyboard.TargetName="btnFavorite">
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.2"
+                                                          Value="2" />
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.5"
+                                                          Value="1" />
+                                </DoubleAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)"
+                                                               Storyboard.TargetName="btnFavorite">
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.2"
+                                                          Value="2" />
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.5"
+                                                          Value="1" />
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+                            <Storyboard x:Name="sbToNotFavorite">
+                                <DoubleAnimation Duration="0:0:0.4"
+                                                 To="0.5"
+                                                 Storyboard.TargetProperty="(UIElement.Opacity)"
+                                                 Storyboard.TargetName="btnFavorite"
+                                                 d:IsOptimized="True" />
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)"
+                                                               Storyboard.TargetName="btnFavorite">
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.2"
+                                                          Value="2" />
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.4"
+                                                          Value="1" />
+                                </DoubleAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)"
+                                                               Storyboard.TargetName="btnFavorite">
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.2"
+                                                          Value="2" />
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.4"
+                                                          Value="1" />
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </Grid.Resources>
+                        <Button x:Name="btnNavigateToStop"
+                                Click="btnNavigateToStop_Click"
+                                Content="{Binding Displayname}"
+                                BorderBrush="{x:Null}"
+                                Background="{x:Null}"
+                                BorderThickness="0"
+                                Tag="{Binding}"
+                                Style="{StaticResource TransparentButton}" Margin="0,0,63,0" Width="410">
+                            <Button.Foreground>
+                                <SolidColorBrush Color="{StaticResource vastTextColor}" />
+                            </Button.Foreground>
+                        </Button>
+                        <Button x:Name="btnFavorite"
+                                Content=""
+                                Tag="{Binding stop_id}"
+                                Click="btnFavorite_Click"
+                                Margin="0,4,0,3"
+                                Width="59"
+                                Height="67"
+                                BorderBrush="{x:Null}"
+                                BorderThickness="0"
+                                Opacity="{Binding FavoriteUI}"
+                                Foreground="{x:Null}"
+                                RenderTransformOrigin="0.5,0.5"
+                                Style="{StaticResource starButton}"
+                                HorizontalAlignment="Right"
+                                Background="{x:Null}">
+                            <Button.RenderTransform>
+                                <CompositeTransform />
+                            </Button.RenderTransform>
+                        </Button>
+                    </Grid>
+                </Border>
+            </Border>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid x:Name="LayoutRoot"
+          Margin="0,0,0,1">
+        <Border BorderThickness="0,1,0,0"
+                BorderBrush="#FFE0E0E0">
+            <ListBox HorizontalAlignment="Left"
+                     ItemsSource="{Binding StopCollection}"
+                     x:Name="listStops"
+                     d:LayoutOverrides="GridBox, VerticalMargin"
+                     DataContext="{Binding Source={StaticResource TheViewModel}}"
+                     ItemTemplate="{StaticResource myCoolTemplate}"
+                     Width="480"
+                     BorderThickness="0,0,0,1"
+                     BorderBrush="#FF8F8F8F"
+                     SelectionChanged="listStops_SelectionChanged" />
+        </Border>
+    </Grid>
+
+</UserControl>

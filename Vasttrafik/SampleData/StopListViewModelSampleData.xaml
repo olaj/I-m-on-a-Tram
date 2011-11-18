@@ -1,0 +1,14 @@
+<Vasttrafik_ViewModel:StopListViewModel xmlns:Vasttrafik_ViewModel="clr-namespace:Vasttrafik.ViewModel" xmlns:Vasttrafik_Model="clr-namespace:Vasttrafik.Model">
+	<Vasttrafik_ViewModel:StopListViewModel.StopCollection>
+		<Vasttrafik_Model:Stop Displayname="Cras maecenas" FavoriteUI="Aenean nam class" IsFavorite="True" county="Mauris curae" friendly_name="Praesent sed dis curabitur est" name="Accumsan duis" stop_id="10"/>
+		<Vasttrafik_Model:Stop Displayname="Aliquam phasellus integer" FavoriteUI="Nullam quisque vestibulum" IsFavorite="False" county="Nunc donec" friendly_name="Consequat bibendum" name="Etiam adipiscing vivamus aliquam dictumst" stop_id="36"/>
+		<Vasttrafik_Model:Stop Displayname="Parturient eleifend convallis" FavoriteUI="Facilisi vestibulum fusce faucibus" IsFavorite="True" county="Lorem amet" friendly_name="Vestibulum habitant aliquet adipiscing morbi" name="Hac parturient dignissim blandit nulla" stop_id="23"/>
+		<Vasttrafik_Model:Stop Displayname="Vestibulum proin commodo leo" FavoriteUI="Elementum aptent mus vestibulum adipiscing" IsFavorite="False" county="Inceptos facilisis augue parturient" friendly_name="Interdum vestibulum ante dolor vestibulum" name="Auctor lobortis adipiscing parturient" stop_id="93"/>
+		<Vasttrafik_Model:Stop Displayname="Congue cursus dictum vestibulum fames" FavoriteUI="Felis nec nascetur" IsFavorite="True" county="Pharetra conubia lectus arcu placerat" friendly_name="Ipsum justo pulvinar non" name="Lacus vestibulum lorem" stop_id="20"/>
+		<Vasttrafik_Model:Stop Displayname="Fermentum cubilia libero sagittis senectus" FavoriteUI="Adipiscing per sed fringilla sem" IsFavorite="False" county="Ligula habitasse" friendly_name="Magna parturient hendrerit diam dapibus" name="Vestibulum sit himenaeos" stop_id="41"/>
+		<Vasttrafik_Model:Stop Displayname="Imperdiet eget" FavoriteUI="Vel massa vestibulum sociosqu" IsFavorite="True" county="Nam egestas adipiscing euismod parturient" friendly_name="Elit malesuada feugiat" name="Enim vestibulum" stop_id="46"/>
+		<Vasttrafik_Model:Stop Displayname="Sed penatibus erat litora" FavoriteUI="Eros vestibulum adipiscing suscipit nibh" IsFavorite="False" county="Gravida parturient torquent iaculis" friendly_name="Dis est" name="Hac nisi" stop_id="22"/>
+		<Vasttrafik_Model:Stop Displayname="Nisl luctus lacinia" FavoriteUI="Laoreet leo porttitor vestibulum" IsFavorite="True" county="Vestibulum magnis nunc odio orci" friendly_name="Pede mus" name="Tincidunt tristique" stop_id="27"/>
+		<Vasttrafik_Model:Stop Displayname="Adipiscing quam ultricies" FavoriteUI="Ultrices natoque" IsFavorite="False" county="Posuere parturient metus morbi nec" friendly_name="Neque venenatis netus non" name="Vulputate potenti vestibulum vestibulum vehicula" stop_id="94"/>
+	</Vasttrafik_ViewModel:StopListViewModel.StopCollection>
+</Vasttrafik_ViewModel:StopListViewModel>

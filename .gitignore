@@ -1,0 +1,9 @@
+obj
+bin
+_UpgradeReport_Files
+*.user
+*.suo
+*.sln.cache
+*.cache
+*.swp
+*.Publish.xml
